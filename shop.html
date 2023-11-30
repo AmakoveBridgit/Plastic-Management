@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- -------------- FAVICON --------------- -->
+  <link rel="icon" type="image/x-icon" href="image/favicon.png">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var addToCartButtons = document.querySelectorAll('.fas.fa-shopping-cart');
+        var totalPriceElement = document.getElementById('total-price');
+        var totalPrice = 0;
+
+        addToCartButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var productBox = button.closest('.box');
+                var productName = productBox.querySelector('h3').textContent;
+                var productPrice = parseFloat(productBox.querySelector('.price h3').textContent);
+
+                // Update total price
+                totalPrice += productPrice;
+                totalPriceElement.textContent = 'Total Price: KES ' + totalPrice.toFixed(2);
+
+                // Add item to localStorage
+                var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                var newItem = { name: productName, price: productPrice.toFixed(2) };
+                cartItems.push(newItem);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                // Optionally, you can add a message to notify the user
+                alert(`${productName} added to the cart!`);
+            });
+        });
+    });
+</script>
+
+
+
+
+
+</head>
+<body>
+    
+<!-- Navigation bar  -->
+
+<header class="header">
+
+    <img class="logo" src="/image/logo 1.png" alt="">
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="review.html">Review</a>
+        <a href="collection.html">Collection</a>
+
+    </nav>
+
+    <div class="icons">
+        <a href="#"id="menu-btn" class="fas fa-bars">
+        <a href="#"id="search-btn" class="fas fa-search"></a>
+        <a href="cart.html"id="cart-btn" class="fas fa-shopping-cart"></a>       
+        <a href="login.html" id="-btn" class="fas fa-user"></a></a>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<!-- section1 -->
+    <div class="heading">
+        <h1>Our Shop</h1>
+    </div>
+
+<section class="category">
+    <h1 class="title"> Our <span>Category</span> <a href="#"></a> </h1>
+    <div class="box-container">
+        <a href="#households" class="box">
+            <img src="image/cups.jpeg" alt="">
+            <h3>House holds</h3>
+        </a>
+
+        <a href="#hardware" class="box">
+            <img src="image/psingle1.jpg" alt="">
+            <h3>Hardware</h3>
+        </a>
+
+        <a href="#bottles" class="box">
+            <img src="image/bottle.jpeg" alt="">
+            <h3>Bottles</h3>
+        </a>
+    </div>
+</section>
+
+<!-- fruits -->
+<section class="products">
+
+    <h1 class="title" id="Bottles"> Recycled<span>House holds</span> <a href="#"></a> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="image">
+                <img src="image/Ndoo.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Ndoo</h3>
+                <div class="price"><h3>KES 15.00</h3></div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="image">
+                <img src="image/Glass.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Glass</h3>
+                <div class="price"><h3>KES 15.00</h3></div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/buckets.png" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Buckets</h3>
+                <div class="price"><h3>KES 50.00</h3></div></a>
+            
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/toys.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Toys</h3>
+                <div class="price"><h3>KES 35.00</h3></div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/stand.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Stand</h3>
+                <div class="price"><h3>KES 65.00</h3></div></a>
+              
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/tanks.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Tanks</h3>
+                <div class="price"><h3>KES 95.00</h3></div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/stand.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Stand</h3>
+                <div class="price"><h3>KES 25.00</h3></div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/toys.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Toys</h3>
+                <div class="price"><h3>KES 60.00</h3></div></a>
+            
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/buckets.png" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Buckets</h3>
+                <div class="price"><h3>KES 30.00</h3></div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/tanks.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Tank</h3>
+                <div class="price"><h3>KES 65.00</h3></div></a>
+              
+            </div>
+        </div>
+
+
+
+       
+
+       
+    </div>
+
+</section>
+
+
+
+<!-- vegetables -->
+<section class="products">
+
+    <h1 class="title" id="vegetables"> Refurbished<span>Hardware</span> <a href="#"></a> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="image">
+                <img src="image/cups.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Cups</h3>
+                <div class="price">KES 155.00</div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/containers.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Buckets</h3>
+                <div class="price">KES 60.00</div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/stand.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Stand</h3>
+                <div class="price">KES 50.00</div></a>
+            
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/Ndoo.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Ndoo</h3>
+                <div class="price">KES 30.00</div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="image">
+                <img src="image/stand.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html"></a>
+                <h3>Stand</h3>
+                <div class="price">KES 35.00</div></a>
+              
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/cups.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Cups</h3>
+                <div class="price">KES 90.00</div></a>
+              
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            <div class="imagee">
+                <img src="image/stand.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Stand</h3>
+                <div class="price">KES 25.00</div></a>
+              
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/containers.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Container</h3>
+                <div class="price">KES 70.00</div></a>
+               
+            </div>
+        </div>
+
+       
+    </div>
+
+</section>
+
+
+<section class="products">
+
+    <h1 class="title" id="cereals"> Recycled<span>Bottles</span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/toys.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Toys</h3>
+                <div class="price">KES 255.00</div></a>
+              
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/containers.jpeg" alt="">
+            </div>
+            <div class="content">
+                <h3>Container</h3><a href="payment.html">
+                <div class="price">KES 110.00</div></a>
+                
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/stand.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Stand</h3>
+                <div class="price">KES 130.00</div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/containers.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Container</h3>
+                <div class="price">KES 130.00</div></a>
+              
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="image">
+                <img src="image/cups.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Cups</h3>
+                <div class="price">KES 135.00</div></a>
+              
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/bottle.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Bottle</h3>
+                <div class="price">KES 120.00</div></a>
+              
+            </div>
+        </div>
+        <!-- ,,,,,, -->
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="image">
+                <img src="image/Glass.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Glass</h3>
+                <div class="price">KES 115.00</div></a>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+            </div>
+            <div class="imagee">
+                <img src="image/tanks.jpeg" alt="">
+            </div>
+            <div class="content"><a href="payment.html">
+                <h3>Tanks</h3>
+                <div class="price">KES 250.00</div></a>
+                
+            </div>
+        </div>
+       
+    </div>
+
+</section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var addToCartButtons = document.querySelectorAll('.icons .fas.fa-shopping-cart');
+        var totalPriceElement = document.getElementById('total-price');
+        var totalPrice = 0;
+
+        addToCartButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var productBox = button.closest('.box');
+                var productName = productBox.querySelector('h3').textContent;
+                var productPrice = parseFloat(productBox.querySelector('.price h3').textContent);
+
+                // Update total price
+                totalPrice += productPrice;
+                totalPriceElement.textContent = 'Total Price: KES ' + totalPrice.toFixed(2);
+
+                // Add item to localStorage
+                var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                var newItem = { name: productName, price: productPrice.toFixed(2) };
+                cartItems.push(newItem);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                alert(`${productName} added to the cart!`);
+            });
+        });
+    });
+</script>
+
+
+<!-- <script src="script.js"></script> -->
+
+
+<footer class="footer"> E-plastics &copy;2023 by Collins Otieno | Get the Freshness!</footer>
+
+
+</body>
+</html>

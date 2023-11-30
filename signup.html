@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account</title>
+  <link rel="stylesheet" href="css/review.css">
+</head>
+<body>
+  <div class="container1">
+    <div class="form-wrapper1">
+      <h1>Create Account</h1>
+      <form onsubmit="return submitForm();">
+        <div class="form-group1">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" placeholder="Enter your first name">
+        </div>
+        <div class="form-group1">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" placeholder="Enter your last name">
+        </div>
+        <div class="form-group1">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group1">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password">
+        </div>
+        <div class="form-group1">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" placeholder="Confirm your password">
+        </div>
+        <button type="submit">Create Account</button>
+        <p class="signin-link">Already have an account? <a href="/login.html">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function submitForm() {
+      // You can add additional validation here if needed
+      // For simplicity, let's just log the form data to the console
+      var formData = {
+        firstName: document.getElementById('first-name').value,
+        lastName: document.getElementById('last-name').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        confirmPassword: document.getElementById('confirm-password').value
+      };
+
+      console.log(formData);
+
+      // Redirect to login.html
+      window.location.href = 'login.html';
+
+      // Return false to prevent the form from being submitted through normal means
+      return false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/rachel.css">
+
+    <!-- -------------- FAVICON --------------- -->
+    <link rel="icon" type="image/x-icon" href="image/favicon.png">
+</head>
+<body id="body">
+
+<header class="header">
+    <img class="logo" src="/image/logo.png" alt="">
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="review.html">Review</a>
+        <a href="collection.html">Collection</a>
+
+    </nav>
+    <div class="icons">
+        <a href="#" id="menu-btn" class="fas fa-bars"></a>
+        <a href="cart.html" id="cart-btn" class="fas fa-shopping-cart"></a>
+        <a href="login.html" id="login-btn" class="fas fa-user"></a>
+    </div>
+    <form action="" class="search-form">
+        <input type="search" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+</header>
+
+<section class="cart">
+  <h1> Cart List</h1>
+  <div id="cart-items-list"></div>
+  <div id="total-price"></div>
+</section>
+
+<!-- Your cart items go here -->
+<!-- ... -->
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var totalPriceElement = document.getElementById('total-price');
+      var cartItemsList = document.getElementById('cart-items-list');
+
+      function updateCart() {
+          // Retrieve cart items from localStorage
+          var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+          var totalPrice = 0;
+
+          // Clear previous items in the cart
+          cartItemsList.innerHTML = '';
+
+          // Update cart items and total price
+          cartItems.forEach(function (item) {
+              var newItem = document.createElement('div');
+              newItem.innerHTML = `<p>${item.name} - KES ${item.price}</p>`;
+              cartItemsList.appendChild(newItem);
+              totalPrice += parseFloat(item.price);
+          });
+
+          totalPriceElement.textContent = 'Total Price: KES ' + totalPrice.toFixed(2);
+      }
+
+      // Initial update when the page loads
+      updateCart();
+
+      // You can also update the cart dynamically if items are added/removed
+      // For example, you can trigger this update when you modify the cart in shop.html
+      // For simplicity, I'll use the window storage event to catch changes made in other pages
+      window.addEventListener('storage', function (event) {
+          if (event.key === 'cartItems') {
+              updateCart();
+          }
+      });
+  });
+</script>
+
+
+
+<footer class="footer"> E-plastic &copy;2023 by Collins Otieno | Get high quality Recycled</footer>
+
+
+
+
+
+</body>
+</html>
